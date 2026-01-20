@@ -36,10 +36,6 @@ func GetPluginName() string { return "kai-scheduler" }
 func (k *KaiScheduler) Name() string { return GetPluginName() }
 
 func (k *KaiScheduler) DoBatchSchedulingOnSubmission(_ context.Context, object metav1.Object) error {
-	_, ok := object.(*rayv1.RayCluster)
-	if !ok {
-		return fmt.Errorf("currently only RayCluster is supported, got %T", object)
-	}
 	return nil
 }
 
